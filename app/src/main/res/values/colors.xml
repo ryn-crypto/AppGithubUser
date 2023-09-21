@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="icon_dark">#c8b6f2</color>
+    <color name="mask">#A2A2A2</color>
+</resources>
