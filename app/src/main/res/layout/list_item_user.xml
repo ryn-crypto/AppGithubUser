@@ -56,5 +56,18 @@
             card_view:layout_constraintTop_toBottomOf="@+id/tv_username"
             card_view:layout_constraintVertical_bias="0.0"
             tools:text="@string/type" />
+
+        <ImageView
+            android:id="@+id/iv_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/favorite_button"
+            android:src="@drawable/baseline_favorite_24"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.5"
+            tools:ignore="RedundantDescriptionCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

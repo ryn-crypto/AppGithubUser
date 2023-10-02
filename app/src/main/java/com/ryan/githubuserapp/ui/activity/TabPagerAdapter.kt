@@ -1,8 +1,9 @@
-package com.ryan.githubuserapp.ui
+package com.ryan.githubuserapp.ui.activity
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.ryan.githubuserapp.ui.fragment.UserListFragment
 
 class TabPagerAdapter(fragmentActivity: FragmentActivity, private val username: String) : FragmentStateAdapter(fragmentActivity) {
 

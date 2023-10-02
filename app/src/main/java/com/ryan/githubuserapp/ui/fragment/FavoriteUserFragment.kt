@@ -1,20 +1,23 @@
-package com.ryan.githubuserapp.ui
+package com.ryan.githubuserapp.ui.fragment
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ryan.githubuserapp.data.viewmodel.FUViewModelFactory
 import com.ryan.githubuserapp.databinding.FragmentUserListBinding
-import com.ryan.githubuserapp.viewmodel.SearchUserViewModel
+import com.ryan.githubuserapp.data.viewmodel.FavoriteUserViewModel
+import com.ryan.githubuserapp.data.viewmodel.UserListViewModel
+import com.ryan.githubuserapp.ui.activity.FavoriteUserListAdapter
 
-class SearchUserFragment: Fragment() {
+class FavoriteUserFragment : Fragment() {
 
     private lateinit var binding: FragmentUserListBinding
-    private lateinit var adapter: SearchUserAdapter
-    private lateinit var viewModel: SearchUserViewModel
+    private lateinit var favoriteUserListAdapter: FavoriteUserListAdapter
+    private lateinit var favoriteUserViewModel: FavoriteUserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,25 +30,17 @@ class SearchUserFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val query = arguments?.getString(ARG_QUERY)
+        val favoriteUserViewModel = ViewModelProvider(this, FUViewModelFactory.getInstance(requireActivity().application))[FavoriteUserViewModel::class.java]
 
-        viewModel = ViewModelProvider(this)[SearchUserViewModel::class.java]
-
-        adapter = SearchUserAdapter()
-        binding.recyclerView.adapter = adapter
+        favoriteUserListAdapter = FavoriteUserListAdapter(favoriteUserViewModel)
+        binding.recyclerView.adapter = favoriteUserListAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         showLoading(true)
 
-        if (!query.isNullOrEmpty()) {
-            viewModel.searchUsers(query)
-        }
-
-        viewModel.userList.observe(viewLifecycleOwner) { searchResponseList ->
+        favoriteUserViewModel.favoriteUsers.observe(viewLifecycleOwner) { favoriteUsers ->
             showLoading(false)
-            if (searchResponseList != null) {
-                adapter.submitList(searchResponseList)
-            }
+            favoriteUserListAdapter.submitList(favoriteUsers)
         }
     }
 
@@ -58,14 +53,8 @@ class SearchUserFragment: Fragment() {
     }
 
     companion object {
-        private const val ARG_QUERY = "query"
-
-        fun newInstance(query: String): SearchUserFragment {
-            val fragment = SearchUserFragment()
-            val args = Bundle()
-            args.putString(ARG_QUERY, query)
-            fragment.arguments = args
-            return fragment
+        fun newInstance(): FavoriteUserFragment {
+            return FavoriteUserFragment()
         }
     }
 }

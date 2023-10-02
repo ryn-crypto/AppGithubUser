@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class UserListResponse(
 
+	@field:SerializedName("id")
+	val id: Int? = null,
+
 	@field:SerializedName("avatar_url")
 	val avatarUrl: String? = null,
 

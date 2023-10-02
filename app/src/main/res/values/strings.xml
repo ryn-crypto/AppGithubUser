@@ -2,17 +2,30 @@
     <string name="app_name">GitHub User</string>
     <string name="title">Judul</string>
     <string name="description">Description</string>
-    <string name="review">Review</string>
-    <string name="write_your_review_here">Write your review here..</string>
-    <string name="send">Kirim</string>
     <string name="username">Nama User</string>
     <string name="type">User</string>
     <string name="user_image">User Image</string>
-    <string name="menu_1">Menu 1</string>
-    <string name="menu_2">Menu 2</string>
+    <string name="menu_1">Pencarian</string>
+    <string name="menu_2">Pengaturan</string>
     <string name="repository">-\nRepository</string>
     <string name="follower">-\nFollower</string>
     <string name="following">-\nFollowing</string>
     <string name="go_toProfile">Go to Profile</string>
     <string name="user_avatar">User Avatar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="chose_theme">Switch Theme to:</string>
+    <string name="favorite_user">Favorite User</string>
+    <string name="fav_activity">User Favorite</string>
+    <string name="user_search">Riyan First Tiyanto</string>
+    <string name="list_user_favorite">List User Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite_button">Favorite button</string>
+    <string name="splash_icon">Splash Icon</string>
+    <string name="user">User</string>
+    <string name="logo_image">logo image</string>
+    <string name="mark_image">mark image</string>
+    <string name="share">share</string>
 </resources>

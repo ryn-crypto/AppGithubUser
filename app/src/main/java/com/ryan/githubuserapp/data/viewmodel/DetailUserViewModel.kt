@@ -1,4 +1,4 @@
-package com.ryan.githubuserapp.viewmodel
+package com.ryan.githubuserapp.data.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -23,7 +23,7 @@ class DetailUserViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     val user = response.body()
                     if (user != null) {
-                        _userDetail.postValue(user)
+                        _userDetail.postValue(user!!)
                     }
                 }
             }

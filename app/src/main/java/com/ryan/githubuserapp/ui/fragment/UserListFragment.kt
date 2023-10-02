@@ -1,14 +1,17 @@
-package com.ryan.githubuserapp.ui
+package com.ryan.githubuserapp.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ryan.githubuserapp.data.viewmodel.FUViewModelFactory
+import com.ryan.githubuserapp.data.viewmodel.FavoriteUserViewModel
 import com.ryan.githubuserapp.databinding.FragmentUserListBinding
-import com.ryan.githubuserapp.viewmodel.UserListViewModel
+import com.ryan.githubuserapp.data.viewmodel.UserListViewModel
 
 class UserListFragment : Fragment() {
 
@@ -32,9 +35,10 @@ class UserListFragment : Fragment() {
         username = arguments?.getString(ARG_USERNAME)
         type = arguments?.getString(ARG_TYPE)
 
+        val favoriteUserViewModel = ViewModelProvider(this, FUViewModelFactory.getInstance(requireActivity().application))[FavoriteUserViewModel::class.java]
         viewModel = ViewModelProvider(this)[UserListViewModel::class.java]
 
-        adapter = UserListAdapter()
+        adapter = UserListAdapter(favoriteUserViewModel)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 

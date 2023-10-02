@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".ui.DetailUserActivity">
+    tools:context=".ui.activity.DetailUserActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -71,11 +71,11 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/username"
                     android:layout_centerHorizontal="true"
+                    android:contentDescription="@string/username"
                     android:src="@drawable/shimmer_text_mask"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -94,12 +94,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/type"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="16dp"
+                    android:contentDescription="@string/type"
                     android:src="@drawable/shimmer_textlong_mask"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -188,18 +188,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/go_toProfile"
-                android:padding="16dp"
+                android:paddingTop="16dp"
+                android:paddingHorizontal="20dp"
                 android:rotation="-25"
                 android:src="@drawable/baseline_shortcut_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/share"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="20dp"
+                android:rotation="-25"
+                android:src="@drawable/baseline_share_24"
+                app:layout_constraintStart_toStartOf="@+id/ivWebLink"
+                app:layout_constraintTop_toBottomOf="@+id/ivWebLink" />
+
+            <ImageView
+                android:id="@+id/ivFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/share"
+                android:paddingHorizontal="20dp"
+                android:src="@drawable/baseline_favorite_24"
+                app:layout_constraintStart_toStartOf="@+id/ivShare"
+                app:layout_constraintTop_toBottomOf="@+id/ivShare" />
+
+            <ImageView
                 android:id="@+id/ivAvatar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="4dp"
-                android:contentDescription="User Avatar"
+                android:contentDescription="@string/user_avatar"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"

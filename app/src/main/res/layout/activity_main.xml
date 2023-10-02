@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -29,7 +29,34 @@
             android:layout_height="match_parent"
             android:layout_marginTop="64dp"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="0dp" >
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/above_fab_text"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/rounded_corners"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="@string/list_user_favorite"
+        android:textColor="@color/material_dynamic_primary0"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/baseline_collections_bookmark_24"
+        app:elevation="8dp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:contentDescription="@string/favorite_user"
+        app:backgroundTint="@color/icon_dark"
+        app:shapeAppearanceOverlay="@style/circularFAB"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
